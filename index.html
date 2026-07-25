@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDE ESD Services – Education for Sustainable Development</title>
+  <meta name="description" content="Overview of Education for Sustainable Development (ESD) services offered by the Centre for Development and Environment, University of Bern.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* CDE brand */
+      --green-dark:        #0c641f;
+      --green-mid:         #0f7d28;
+      --green-light:       #e8f4eb;
+      --teal:              #046178;
+      --teal-light:        #e0f2f5;
+      --red:               #d6002b;
+      --text:              #1a1a1a;
+      --text-muted:        #5a5a5a;
+      --border:            #d8e0d8;
+      --white:             #ffffff;
+      --bg-alt:            #f7f9f7;
+
+      /* ESD service categories — matching the hexagonal diagram */
+      --cat-mentoring:     #EFB830;
+      --cat-mentoring-dk:  #8a6510;
+      --cat-mentoring-bg:  #fdf3de;
+      --cat-individual:    #F4906A;
+      --cat-individual-dk: #a34f2f;
+      --cat-individual-bg: #fdeae2;
+      --cat-networking:    #DF6D50;
+      --cat-networking-dk: #953d27;
+      --cat-networking-bg: #fbe4dc;
+      --cat-study:         #8868B5;
+      --cat-study-dk:      #4f3d75;
+      --cat-study-bg:      #ece6f4;
+      --cat-institutional: #5082B5;
+      --cat-institutional-dk: #2c4a6e;
+      --cat-institutional-bg: #e2ebf4;
+      --cat-knowledge:     #7ABB7A;
+      --cat-knowledge-dk:  #3a7a3a;
+      --cat-knowledge-bg:  #e4f4e4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a { color: var(--green-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Top bar ───────────────────────────────────────── */
+    .topbar {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.78rem;
+      padding: 0.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar a { color: rgba(255,255,255,0.85); }
+    .topbar a:hover { color: #fff; text-decoration: underline; }
+
+    /* ── Header ────────────────────────────────────────── */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--green-dark);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-mark {
+      width: 44px; height: 44px;
+      background: var(--green-dark);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark span { color: #fff; font-weight: 700; font-size: 1rem; letter-spacing: -0.5px; }
+    .site-title { font-size: 1.25rem; font-weight: 700; color: var(--green-dark); letter-spacing: -0.3px; }
+    .site-title .org { font-weight: 400; color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ── Hero — two-column layout ──────────────────────── */
+    .hero {
+      background: linear-gradient(140deg, var(--green-dark) 0%, #1a5c30 55%, #0d5268 100%);
+      color: #fff;
+      padding: 3rem 2rem 2.5rem;
+    }
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-text { flex: 1; min-width: 240px; }
+    .hero-diagram { flex: 0 0 460px; max-width: 100%; }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      letter-spacing: -0.4px;
+    }
+    .hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      max-width: 460px;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.93rem;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+    .btn-primary { background: #fff; color: var(--green-dark); }
+    .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.55); }
+
+    /* ── Hex SVG ───────────────────────────────────────── */
+    .hex-svg { width: 100%; display: block; }
+
+    .hex-group {
+      cursor: pointer;
+      transition: filter 0.18s;
+    }
+    .hex-group:hover {
+      filter: brightness(1.12) drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+    }
+    .hex-group polygon {
+      transition: filter 0.18s;
+    }
+    .hex-center-poly {
+      stroke: var(--green-dark);
+      stroke-width: 2.5;
+    }
+    .hex-caption {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* ── Section wrapper ───────────────────────────────── */
+    .section { padding: 3.5rem 2rem; }
+    .section-alt { background: var(--bg-alt); }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--cat-knowledge-dk);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.3px;
+    }
+    .section-intro {
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    /* ── About prose ───────────────────────────────────── */
+    .about-body {
+      max-width: 760px;
+      color: var(--text);
+    }
+    .about-body p { margin-bottom: 1.1rem; line-height: 1.75; }
+    .about-body p:last-child { margin-bottom: 0; }
+
+    /* ── Service cards ─────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      scroll-margin-top: 1.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+    }
+    .card-accent { height: 5px; }
+    .card-body { padding: 1.4rem; flex: 1; }
+    .card-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      border-radius: 3px;
+      padding: 0.2rem 0.55rem;
+      margin-bottom: 0.75rem;
+    }
+    .card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    .card-footer {
+      padding: 1rem 1.4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .card-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card-link:hover { text-decoration: underline; }
+    .card-link::after { content: "→"; }
+    .draft-flag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--red);
+      border-radius: 3px;
+      padding: 0.1rem 0.4rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* colour variants */
+    .card-mentoring .card-accent { background: var(--cat-mentoring); }
+    .card-mentoring .card-tag { color: var(--cat-mentoring-dk); background: var(--cat-mentoring-bg); }
+    .card-mentoring .card-link { color: var(--cat-mentoring-dk); }
+
+    .card-individual .card-accent { background: var(--cat-individual); }
+    .card-individual .card-tag { color: var(--cat-individual-dk); background: var(--cat-individual-bg); }
+    .card-individual .card-link { color: var(--cat-individual-dk); }
+
+    .card-networking .card-accent { background: var(--cat-networking); }
+    .card-networking .card-tag { color: var(--cat-networking-dk); background: var(--cat-networking-bg); }
+    .card-networking .card-link { color: var(--cat-networking-dk); }
+
+    .card-study .card-accent { background: var(--cat-study); }
+    .card-study .card-tag { color: var(--cat-study-dk); background: var(--cat-study-bg); }
+    .card-study .card-link { color: var(--cat-study-dk); }
+
+    .card-institutional .card-accent { background: var(--cat-institutional); }
+    .card-institutional .card-tag { color: var(--cat-institutional-dk); background: var(--cat-institutional-bg); }
+    .card-institutional .card-link { color: var(--cat-institutional-dk); }
+
+    .card-knowledge .card-accent { background: var(--cat-knowledge); }
+    .card-knowledge .card-tag { color: var(--cat-knowledge-dk); background: var(--cat-knowledge-bg); }
+    .card-knowledge .card-link { color: var(--cat-knowledge-dk); }
+    .card-knowledge { border: 1px solid var(--cat-knowledge); }
+
+    /* ── Draft notice banner ───────────────────────────── */
+    .draft-banner {
+      background: #fdf0f0;
+      border-left: 4px solid var(--red);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.4rem;
+      margin-bottom: 2rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .draft-banner strong { color: var(--text); }
+
+    /* ── License banner ────────────────────────────────── */
+    .license-banner {
+      background: var(--teal-light);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .license-banner .cc { font-size: 1.6rem; flex-shrink: 0; }
+    .license-banner p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    .license-banner strong { color: var(--text); }
+
+    /* ── Footer ────────────────────────────────────────── */
+    footer { background: var(--green-dark); color: rgba(255,255,255,0.7); padding: 2.5rem 2rem; }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    footer h4 { color: #fff; font-size: 0.95rem; margin-bottom: 0.6rem; }
+    footer p, footer a { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    footer a:hover { color: #fff; text-decoration: underline; }
+    .footer-bottom {
+      max-width: 1080px; margin: 1.5rem auto 0; padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .hero-inner { flex-direction: column; }
+      .hero-text { text-align: center; }
+      .hero-actions { justify-content: center; }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .hero-diagram { flex: 0 0 auto; width: 100%; max-width: 420px; margin: 0 auto; }
+    }
+    @media (max-width: 600px) {
+      .topbar { flex-direction: column; gap: 0.2rem; text-align: center; }
+      header { padding: 1rem; }
+      .hero { padding: 2rem 1rem 1.5rem; }
+      .section { padding: 2.5rem 1rem; }
+      .footer-inner { flex-direction: column; }
+      .footer-bottom { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <span>Centre for Development and Environment · University of Bern</span>
+  <a href="https://www.cde.unibe.ch" target="_blank" rel="noopener">← Back to CDE</a>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="logo-mark"><span>CDE</span></div>
+  <div>
+    <div class="site-title">CDE ESD Services</div>
+    <div class="site-title org">Education for Sustainable Development · github.com/CDEteaching/ESD</div>
+  </div>
+</header>
+
+<!-- Hero with hexagonal ESD services diagram -->
+<div class="hero">
+  <div class="hero-inner">
+
+    <!-- Left: text -->
+    <div class="hero-text">
+      <span class="hero-tag">Education for Sustainable Development</span>
+      <h1>CDE's Services for<br>Education for Sustainable Development</h1>
+      <p>
+        The Centre for Development and Environment (CDE) supports learners, educators,
+        and institutions across the full spectrum of Education for Sustainable Development -
+        from individual mentoring to institutional partnerships. This page is the entry
+        point to all six service areas.
+      </p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary">About CDE ESD</a>
+        <a href="#services" class="btn btn-outline">Explore services</a>
+      </div>
+    </div>
+
+    <!-- Right: interactive hex diagram -->
+    <div class="hero-diagram">
+      <!--
+        Flat-top regular hexagons, circumradius R=80, center-to-center d≈139
+        Center: (240, 248)  Top: (240,109)  TR: (360,179)  BR: (360,317)
+        Bottom: (240,387)   BL: (120,317)   TL: (120,179)
+        Polygon for center (cx,cy): (cx+80,cy) (cx+40,cy+69) (cx-40,cy+69)
+                                    (cx-80,cy) (cx-40,cy-69) (cx+40,cy-69)
+      -->
+      <svg class="hex-svg" viewBox="0 0 480 500"
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="CDE ESD services overview — six service categories arranged around a central hexagon">
+        <defs>
+          <filter id="hex-shadow" x="-15%" y="-15%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.18"/>
+          </filter>
+        </defs>
+
+        <!-- ── CENTER: Our services (white, no link) -->
+        <g class="hex-center" aria-hidden="true">
+          <polygon class="hex-center-poly"
+            points="320,248 280,317 200,317 160,248 200,179 280,179"
+            fill="#ffffff"/>
+          <text text-anchor="middle" font-family="Inter, Arial, sans-serif"
+                font-size="12" font-weight="700" fill="#0c641f">
+            <tspan x="241" dy="0" y="241">Our</tspan>
+            <tspan x="241" dy="15">services</tspan>
+          </text>
+        </g>
+
+        <!-- ── TOP: mentoring & coaching -->
+        <a href="#mentoring" aria-label="Mentoring & Coaching — jump to section">
+          <g class="hex-group" filter="url(#hex-shadow)">
+            <polygon class="hex-fill"
+              points="320,109 280,178 200,178 160,109 200,40 280,40"
+              fill="#EFB830"/>
+            <text text-anchor="middle" font-family="Inter, Arial, sans-serif"
+                  font-size="10" font-weight="600" fill="#1a1a1a">
+              <tspan x="240" y="100">mentoring &amp;</tspan>
+              <tspan x="240" dy="13">coaching</tspan>
+            </text>
+          </g>
+        </a>
+
+        <!-- ── TOP-RIGHT: individual capacity strengthening -->
+        <a href="#individual" aria-label="Individual Capacity Strengthening — jump to section">
+          <g class="hex-group" filter="url(#hex-shadow)">
+            <polygon class="hex-fill"
+              points="440,179 400,248 320,248 280,179 320,110 400,110"
+              fill="#F4906A"/>
+            <text text-anchor="middle" font-family="Inter, Arial, sans-serif"
+                  font-size="10" font-weight="600" fill="#1a1a1a">
+              <tspan x="360" y="166">individual</tspan>
+              <tspan x="360" dy="13">capacity</tspan>
+              <tspan x="360" dy="13">strengthening</tspan>
+            </text>
+          </g>
+        </a>
+
+        <!-- ── BOTTOM-RIGHT: networking & exchange within CoP -->
+        <a href="#networking" aria-label="Networking & Exchange within Communities of Practice — jump to section">
+          <g class="hex-group" filter="url(#hex-shadow)">
+            <polygon class="hex-fill"
+              points="440,317 400,386 320,386 280,317 320,248 400,248"
+              fill="#DF6D50"/>
+            <text text-anchor="middle" font-family="Inter, Arial, sans-serif"
+                  font-size="10" font-weight="600" fill="#ffffff">
+              <tspan x="360" y="304">networking &amp;</tspan>
+              <tspan x="360" dy="13">exchange</tspan>
+              <tspan x="360" dy="13">within CoP</tspan>
+            </text>
+          </g>
+        </a>
+
+        <!-- ── BOTTOM: CDE study programmes & continuing education -->
+        <a href="#study" aria-label="CDE Study Programmes & Continuing Education — jump to section">
+          <g class="hex-group" filter="url(#hex-shadow)">
+            <polygon class="hex-fill"
+              points="320,387 280,456 200,456 160,387 200,318 280,318"
+              fill="#8868B5"/>
+            <text text-anchor="middle" font-family="Inter, Arial, sans-serif"
+                  font-size="10" font-weight="600" fill="#ffffff">
+              <tspan x="240" y="371">CDE study</tspan>
+              <tspan x="240" dy="13">programmes &amp;</tspan>
+              <tspan x="240" dy="13">cont. education</tspan>
+            </text>
+          </g>
+        </a>
+
+        <!-- ── BOTTOM-LEFT: institutional capacity strengthening -->
+        <a href="#institutional" aria-label="Institutional Capacity Strengthening — jump to section">
+          <g class="hex-group" filter="url(#hex-shadow)">
+            <polygon class="hex-fill"
+              points="200,317 160,386 80,386 40,317 80,248 160,248"
+              fill="#5082B5"/>
+            <text text-anchor="middle" font-family="Inter, Arial, sans-serif"
+                  font-size="10" font-weight="600" fill="#ffffff">
+              <tspan x="120" y="304">institutional</tspan>
+              <tspan x="120" dy="13">capacity</tspan>
+              <tspan x="120" dy="13">strengthening</tspan>
+            </text>
+          </g>
+        </a>
+
+        <!-- ── TOP-LEFT: knowledge resources & materials (links off-site to cdeteaching.github.io) -->
+        <a href="https://cdeteaching.github.io" target="_blank" rel="noopener"
+           aria-label="Knowledge Resources & Materials — open CDE Teaching site">
+          <g class="hex-group" filter="url(#hex-shadow)">
+            <polygon class="hex-fill"
+              points="200,179 160,248 80,248 40,179 80,110 160,110"
+              fill="#7ABB7A"/>
+            <text text-anchor="middle" font-family="Inter, Arial, sans-serif"
+                  font-size="10" font-weight="600" fill="#1a1a1a">
+              <tspan x="120" y="166">knowledge</tspan>
+              <tspan x="120" dy="13">resources &amp;</tspan>
+              <tspan x="120" dy="13">materials</tspan>
+            </text>
+          </g>
+        </a>
+
+      </svg>
+      <p class="hex-caption">Click a category to jump to it · knowledge resources opens the CDE Teaching site</p>
+    </div>
+
+  </div><!-- /hero-inner -->
+</div>
+
+<!-- About -->
+<div class="section" id="about">
+  <div class="container">
+    <div class="section-label">About</div>
+    <h2 class="section-title">CDE and Education for Sustainable Development</h2>
+    <div class="about-body">
+      <p>
+        The Centre for Development and Environment (CDE) at the University of Bern works at the
+        interface of research, teaching, and practice on sustainable development and sustainability
+        transformations. Education for Sustainable Development (ESD) is not a single product but a
+        portfolio of interconnected services — reaching individuals, communities of practice, and
+        institutions at different stages of their transformation journeys.
+      </p>
+      <p>
+        The six service areas shown above are complementary rather than sequential: a student may
+        start in a study programme and move into mentoring; a partner institution may draw on
+        knowledge resources while also engaging in institutional capacity strengthening. Together
+        they reflect CDE's mandate to support learning for sustainability across scales — from the
+        individual to the institutional, from the Global North to the Global South.
+      </p>
+      <p class="draft-banner">
+        <strong>Draft page.</strong> The descriptions below for mentoring &amp; coaching, individual
+        capacity strengthening, networking &amp; exchange, study programmes, and institutional
+        capacity strengthening are placeholder copy drafted for review — not yet confirmed CDE
+        service descriptions. Only <em>knowledge resources &amp; materials</em> links to a live,
+        existing service (CDE Teaching on GitHub Pages).
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Services overview -->
+<div class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-title">Six Ways We Support ESD</h2>
+    <p class="section-intro">
+      Each category below corresponds to one hexagon in the diagram above. Click through to explore
+      or reach out via the contact details in the footer.
+    </p>
+
+    <div class="cards">
+
+      <!-- Mentoring & Coaching -->
+      <div class="card card-mentoring" id="mentoring">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <span class="card-tag">Mentoring &amp; Coaching<span class="draft-flag">draft</span></span>
+          <h3>Mentoring &amp; Coaching</h3>
+          <p>One-to-one and small-group mentoring for students, early-career researchers, and
+             practitioners navigating sustainability transformations — supporting academic
+             development, thesis supervision, and career transitions into sustainability-oriented roles.</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.cde.unibe.ch" target="_blank" rel="noopener" class="card-link">Contact CDE</a>
+        </div>
+      </div>
+
+      <!-- Individual Capacity Strengthening -->
+      <div class="card card-individual" id="individual">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <span class="card-tag">Individual Capacity Strengthening<span class="draft-flag">draft</span></span>
+          <h3>Individual Capacity Strengthening</h3>
+          <p>Targeted training and skills development for individuals — short courses, workshops,
+             and micro-credentials that build competencies in sustainability analysis, transdisciplinary
+             methods, and transformation literacy.</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.cde.unibe.ch" target="_blank" rel="noopener" class="card-link">Contact CDE</a>
+        </div>
+      </div>
+
+      <!-- Networking & Exchange within CoP -->
+      <div class="card card-networking" id="networking">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <span class="card-tag">Networking &amp; Exchange<span class="draft-flag">draft</span></span>
+          <h3>Networking &amp; Exchange within Communities of Practice</h3>
+          <p>Platforms and events that connect researchers, educators, and practitioners across CDE's
+             communities of practice — enabling peer learning, co-creation, and exchange of experience
+             across regions and disciplines.</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.cde.unibe.ch" target="_blank" rel="noopener" class="card-link">Contact CDE</a>
+        </div>
+      </div>
+
+      <!-- CDE Study Programmes & Continuing Education -->
+      <div class="card card-study" id="study">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <span class="card-tag">Study Programmes</span>
+          <h3>CDE Study Programmes &amp; Continuing Education</h3>
+          <p>Structured, credit-bearing education at CDE, including the MSc in Sustainability
+             Transformations and Certificate of Advanced Studies (CAS) offerings — combining academic
+             rigour with transformation-oriented, competence-based learning.</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.cde.unibe.ch/studies/master_in_sustainability_transformations/index_eng.html" target="_blank" rel="noopener" class="card-link">Contact CDE</a>
+        </div>
+      </div>
+
+      <!-- Institutional Capacity Strengthening -->
+      <div class="card card-institutional" id="institutional">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <span class="card-tag">Institutional Capacity Strengthening<span class="draft-flag">draft</span></span>
+          <h3>Institutional Capacity Strengthening</h3>
+          <p>Long-term partnerships with universities, ministries, and organisations to embed
+             sustainability competencies into institutional structures, curricula, and policy
+             processes — particularly across North-South collaborations.</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.cde.unibe.ch" target="_blank" rel="noopener" class="card-link">Contact CDE</a>
+        </div>
+      </div>
+
+      <!-- Knowledge Resources & Materials — live link -->
+      <div class="card card-knowledge" id="knowledge">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <span class="card-tag">Knowledge Resources &amp; Materials</span>
+          <h3>Knowledge Resources &amp; Materials</h3>
+          <p>Open Education Resources — course materials, teaching guides, and learning tools,
+             freely available for reuse. Explore the full collection on the CDE Teaching site.</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://cdeteaching.github.io" target="_blank" rel="noopener" class="card-link">Open CDE Teaching</a>
+        </div>
+      </div>
+
+    </div><!-- /cards -->
+
+    <div class="license-banner">
+      <span class="cc">⚖️</span>
+      <p>
+        <strong>Open License.</strong> Teaching materials linked from this page are published under a
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> license
+        unless stated otherwise in the individual repository.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>CDE ESD Services</h4>
+      <p>Education for Sustainable Development at CDE.<br>
+         <a href="https://github.com/CDEteaching" target="_blank" rel="noopener">github.com/CDEteaching</a>
+      </p>
+    </div>
+    <div>
+      <h4>Centre for Development and Environment</h4>
+      <p>University of Bern<br>
+         Mittelstrasse 43, 3012 Bern, Switzerland<br>
+         <a href="https://www.cde.unibe.ch" target="_blank" rel="noopener">www.cde.unibe.ch</a>
+      </p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <p>
+        <a href="#about">About</a><br>
+        <a href="#services">Our services</a><br>
+        <a href="https://cdeteaching.github.io" target="_blank" rel="noopener">Knowledge resources (CDE Teaching)</a><br>
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0 License</a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© Centre for Development and Environment, University of Bern</span>
+    <span>Published under CC BY 4.0 · <a href="https://github.com/CDEteaching/ESD" target="_blank" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
