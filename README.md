@@ -1,7 +1,7 @@
 # CDE ESD Services — Home Page
 
 > **Target repo:** [github.com/CDEteaching/ESD](https://github.com/CDEteaching/ESD)
-> **Target live URL (once Pages is enabled):** `https://cdeteaching.github.io/ESD/`
+> **Target live URL:** https://cdeteaching.github.io/ESD/
 
 Home page for CDE's Education for Sustainable Development (ESD) services. It is the hub the
 hexagon diagram points to: one hexagon per service category, five of which describe services that
@@ -11,31 +11,13 @@ study programmes), and one — *knowledge resources & materials* — which links
 
 ---
 
-## ⚠️ Before publishing — review needed
-
-The card text for five of the six service categories is **drafted placeholder copy**, written from
-the category names alone (no source material was available in the vault). Each is marked with a
-`draft` flag in the page itself. Review and rewrite before this goes live:
-
-- [ ] Mentoring & Coaching
-- [ ] Individual Capacity Strengthening
-- [ ] Networking & Exchange within CoP
-- [ ] CDE Study Programmes & Continuing Education
-- [ ] Institutional Capacity Strengthening
-
-Only **Knowledge Resources & Materials** is real/confirmed — it links to the live CDE Teaching site.
-
-All five draft cards currently link out to `https://www.cde.unibe.ch` as a placeholder "Contact CDE"
-— replace with real service-specific URLs or contact paths once known.
-
----
-
 ## What this repo contains
 
 | File | Purpose |
 |------|---------|
 | `index.html` | The complete home page — single self-contained file, no build step |
 | `README.md` | This file |
+| `cde_logo.jpg` | CDE logo fetched from www.cde.unibe.ch |
 
 ---
 
@@ -53,13 +35,6 @@ start index.html         # Windows
 open index.html          # macOS
 ```
 
-## Deployment
-
-Once content is reviewed:
-1. Push `index.html` (and this `README.md`) to the `main` branch of `CDEteaching/ESD`
-2. Enable GitHub Pages (Settings → Pages → source: `main`, root)
-3. Update the green "knowledge resources" hex on `cdeteaching.github.io`'s own page if you want it
-   to link back here instead of (or in addition to) `#courses`
 
 ## Design
 
